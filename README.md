@@ -1,4 +1,4 @@
-# PR Risk Assessment GitHub Action
+# Metge Mate GitHub Action
 
 Nightwatch is a GitHub Action for teams that need faster, higher quality pull request reviews. It posts a concise, actionable report directly on the PR to accelerate resolution and reduce review thrash.
 
@@ -24,7 +24,7 @@ Nightwatch is a GitHub Action for teams that need faster, higher quality pull re
 Add Nightwatch as a drop-in GitHub Action (example workflow):
 
 ```yaml
-name: PR Risk Assessment
+name: Merge Mate
 
 on:
   pull_request:
