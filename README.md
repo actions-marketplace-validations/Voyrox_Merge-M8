@@ -2,7 +2,7 @@
 
 Merge M8 is a GitHub Action for teams that need faster, higher quality pull request reviews. It posts a concise, actionable report directly on the PR to accelerate resolution and reduce review thrash.
 
-### Why teams use Nightwatch
+### Why teams use Merge M8
 
 - Rapid risk snapshot (score, churn, risky files)
 - Conflict detection across open PRs
