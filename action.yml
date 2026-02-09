@@ -1,4 +1,4 @@
-name: Nightwatch
+name: PR Risk Assessment
 author: Ewen MacCulloch <ewen@macculloch.net>
 description: Generate PR Nightwatch report and post to the PR
 branding:
