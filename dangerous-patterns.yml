@@ -1,0 +1,18 @@
+banned:
+  - ^\.env$
+  - ^\.env\..+$
+  - secrets?
+  - credentials?
+  - \.pem$
+  - \.key$
+  - id_rsa
+  - terraform\.tfvars$
+  - docker-compose\.override\.ya?ml$
+  - config/.*secret.*
+
+allowed:
+  - ^\.env\.example$
+  - \.example$
+  - sample
+  - fixtures?
+  - test-data
