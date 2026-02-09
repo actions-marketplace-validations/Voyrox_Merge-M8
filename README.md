@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Nightwatch
-        uses: Voyrox/Nightwatch@v1
+        uses: Voyrox/Merge-M8@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           timeZone: America/New_York  # optional override (default: Australia/Sydney)
