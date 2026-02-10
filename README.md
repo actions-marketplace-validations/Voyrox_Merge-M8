@@ -1,6 +1,6 @@
-# Metge M8 GitHub Action
+# Merge M8
 
-Merge M8 is a GitHub Action for teams that need faster, higher quality pull request reviews. It posts a concise, actionable report directly on the PR to accelerate resolution and reduce review thrash.
+Merge M8 posts a concise, actionable report directly on the PR to accelerate resolution and reduce review thrash.
 
 ### Why teams use Merge M8
 
@@ -19,34 +19,40 @@ Merge M8 is a GitHub Action for teams that need faster, higher quality pull requ
 - Ownership and bus factor for touched files
 - Fatigue signal and changed-files summary
 
-### Usage
+### Installation
 
-Add Nightwatch as a drop-in GitHub Action (example workflow):
+Copy and paste the following snippet into your workflow:
 
 ```yaml
-name: Merge M8
+name: "Merge M8"
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch: {}
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
-  pages-preview:
+  merge_m8:
+    name: "Merge automation"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Nightwatch
-        uses: Voyrox/Merge-M8@v1
+      - name: "Checkout (full history)"
+        uses: actions/checkout@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          timeZone: America/New_York  # optional override (default: Australia/Sydney)
+          fetch-depth: 0
+
+      - name: "Run Merge M8"
+        uses: Voyrox/Merge-M8@v1.0.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TZ: America/New_York  # optional override (default: Australia/Sydney)
 ```
 
 ### Inputs
 
-- `github_token` (required, default `${{ github.token }}`): token with access to read PRs and post comments.
-- `timeZone` (optional, default `Australia/Sydney`): sets `TZ` for developer country calculations.
+- `github_token` (required, default `${{ github.token }}`): token with permissions to read PRs and post comments.
+- `timeZone` (optional, default `Australia/Sydney`): sets `TZ` for developer time calculations.

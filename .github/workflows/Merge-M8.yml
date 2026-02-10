@@ -1,29 +1,26 @@
-name: Merge M8
+name: "Merge M8"
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-  push:
-    branches: [main]
+  workflow_dispatch: {}
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
-  Nightwatch:
+  merge_m8:
+    name: "Merge automation"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: "Checkout (full history)"
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # needed for git history/ownership
+          fetch-depth: 0
 
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 20
-
-      - name: Run Merge M8
+      - name: "Run Merge M8"
+        uses: Voyrox/Merge-M8@v1.0.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: Australia/Sydney
-        run: node lib/main.js
