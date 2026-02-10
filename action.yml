@@ -31,21 +31,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: 22
-
-    - name: Install dependencies
-      shell: bash
-      run: |
-        if [ -f package-lock.json ]; then
-          npm ci
-        else
-          npm install
-        fi
-
-    - name: Run Nightwatch
+    - name: Run Merge M8
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}

@@ -50,7 +50,7 @@ jobs:
           fetch-depth: 0
 
       - name: "Run Merge M8"
-        uses: Voyrox/Merge-M8@v1.0.5
+        uses: Voyrox/Merge-M8@v1.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TZ: America/New_York # optional override (default: Australia/Sydney)
